@@ -25,9 +25,8 @@ export default function Home() {
   const [stars, setStars]       = useState(5);
 
   useEffect(() => {
-    if (window.location.hash) {
-      document.querySelector(window.location.hash)?.scrollIntoView({ behavior: "smooth" });
-    }
+    // HashRouter usa rutas como #/home que no son selectores CSS válidos
+    // Los enlaces con href="#explore" y href="#comentarios" funcionan directamente
   }, []);
 
   const handleSubmit = (e) => {

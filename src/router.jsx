@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -18,12 +19,13 @@ import Machines from './pages/machines'
 
 export default function Router() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow pt-20">
           <Routes>
-            <Route path="/" element={<Home />} />
+           <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
@@ -39,6 +41,6 @@ export default function Router() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
